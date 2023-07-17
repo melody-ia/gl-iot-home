@@ -125,6 +125,7 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 .comm-inner{max-width:1222px; height:inherit; position:relative; margin:0 auto; padding:0 15px;}
 .comm-b-inner{max-width:1458px; height:inherit; position:relative; margin:0 auto; padding:0 15px;}
 .randing_container_wide span{display:block;}
+.img-quality{image-rendering:-webkit-optimize-contrast; image-rendering:-moz-crisp-edges; image-rendering:-o-crisp-edges; image-rendering:crisp-edges; backface-visibility:hidden;}
 
 /* 구글 플레이 / 앱스토어 다운로드 버튼 */
 .download{@include display(flex, center, null, null); column-gap:15px;
@@ -209,8 +210,9 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
         }
         .gif-box{@include conSize(calc(34vw + 2px), 38vw); @include position(absolute, calc(9vw + 30px), calc(-2vw + 5px), null, null, null);
             .heart{@include position(absolute, -1px, null, null, calc(50% - 95px), null); transform:translateX(-50%);}
-            &-inner{@include conSize(100%, 100%); position:relative; background:url(../assets/img/landing-gif.gif) no-repeat center / cover;
+            &-inner{@include conSize(100%, 100%); position:relative; background:url(../assets/img/landing-gif.gif) no-repeat center / cover; @extend .img-quality;
                 @include responsive-991{background:url(../assets/img/mlanding-gif.gif) no-repeat center / cover;}
+                //@include responsive-480{background-size:contain;}
             }
             @media(min-width:1921px){@include conSize(654px, 729px)}
             @include responsive-1700{@include conSize(582px, 648px); position:static;}
@@ -558,7 +560,7 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
     &-bubble{@include conSize(39px, 40px); position:relative; background:url(../assets/img/speech-bubble2.png) no-repeat center / cover;
         @for $i from 1 to 5{
             &-#{$i}{
-                &::before{content:""; @include conSize(100%, 100%); display:block; @include position(absolute, -3px, null, null, 1px, null); background:url(../assets/img/comm-layout-bubble-#{$i}.png) no-repeat center;}
+                &::before{content:""; @include conSize(100%, 100%); display:block; @include position(absolute, -3px, null, null, 0, null); background:url(../assets/img/comm-layout-bubble-#{$i}.png) no-repeat center;}
             }
             &-4{
                 &::before{top:-2px; left:0;}
@@ -568,8 +570,10 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
         @include responsive-480{@include conSize(36px, 36px);
             @for $i from 1 to 5{ 
                 &-#{$i}{
-                    &::before{content:""; @include conSize(100%, 100%); display:block; @include position(absolute, -3px, null, null, 1px, null); background:url(../assets/img/mcomm-layout-bubble-#{$i}.png) no-repeat center / 18px;}
+                    &::before{content:""; @include conSize(100%, 100%); display:block; background:url(../assets/img/mcomm-layout-bubble-#{$i}.png) no-repeat center / 18px;}
                 }
+                &-1::before{top:-2px; left:.5px;}
+                &-3::before{top:-2px; background-size:20px;}
             }
         }
     }
@@ -591,7 +595,7 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
         }
         .phone{@include conSize(calc(22vw - 2px), calc(39vw + 4px)); transition:all .3s $easing;
             &.leave{transition:all .6s $easing;}
-            img{width:100%; image-rendering:-webkit-optimize-contrast; image-rendering:-moz-crisp-edges; image-rendering:-o-crisp-edges; image-rendering:crisp-edges; backface-visibility:hidden;
+            img{width:100%; @extend .img-quality;
                 @include responsive-480{height:100%; object-fit:contain;}
             }
             @include responsive-1700{@include conSize(362px, 650px)}

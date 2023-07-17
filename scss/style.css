@@ -333,6 +333,15 @@ a {
   display: block;
 }
 
+.img-quality, .comm-layout-inner .phone img, .section01-inner .gif-box-inner {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -o-crisp-edges;
+  image-rendering: crisp-edges;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
 /* 구글 플레이 / 앱스토어 다운로드 버튼 */
 .download {
   display: -webkit-box;
@@ -2009,7 +2018,7 @@ a {
   display: block;
   position: absolute;
   top: -3px;
-  left: 1px;
+  left: 0;
   background: url(../assets/img/comm-layout-bubble-1.png) no-repeat center;
 }
 .comm-layout-bubble-4::before {
@@ -2023,7 +2032,7 @@ a {
   display: block;
   position: absolute;
   top: -3px;
-  left: 1px;
+  left: 0;
   background: url(../assets/img/comm-layout-bubble-2.png) no-repeat center;
 }
 .comm-layout-bubble-4::before {
@@ -2037,7 +2046,7 @@ a {
   display: block;
   position: absolute;
   top: -3px;
-  left: 1px;
+  left: 0;
   background: url(../assets/img/comm-layout-bubble-3.png) no-repeat center;
 }
 .comm-layout-bubble-4::before {
@@ -2051,7 +2060,7 @@ a {
   display: block;
   position: absolute;
   top: -3px;
-  left: 1px;
+  left: 0;
   background: url(../assets/img/comm-layout-bubble-4.png) no-repeat center;
 }
 .comm-layout-bubble-4::before {
@@ -2073,40 +2082,60 @@ a {
     width: 100%;
     height: 100%;
     display: block;
-    position: absolute;
-    top: -3px;
-    left: 1px;
     background: url(../assets/img/mcomm-layout-bubble-1.png) no-repeat center/18px;
+  }
+  .comm-layout-bubble-1::before {
+    top: -2px;
+    left: 0.5px;
+  }
+  .comm-layout-bubble-3::before {
+    top: -2px;
+    background-size: 20px;
   }
   .comm-layout-bubble-2::before {
     content: "";
     width: 100%;
     height: 100%;
     display: block;
-    position: absolute;
-    top: -3px;
-    left: 1px;
     background: url(../assets/img/mcomm-layout-bubble-2.png) no-repeat center/18px;
+  }
+  .comm-layout-bubble-1::before {
+    top: -2px;
+    left: 0.5px;
+  }
+  .comm-layout-bubble-3::before {
+    top: -2px;
+    background-size: 20px;
   }
   .comm-layout-bubble-3::before {
     content: "";
     width: 100%;
     height: 100%;
     display: block;
-    position: absolute;
-    top: -3px;
-    left: 1px;
     background: url(../assets/img/mcomm-layout-bubble-3.png) no-repeat center/18px;
+  }
+  .comm-layout-bubble-1::before {
+    top: -2px;
+    left: 0.5px;
+  }
+  .comm-layout-bubble-3::before {
+    top: -2px;
+    background-size: 20px;
   }
   .comm-layout-bubble-4::before {
     content: "";
     width: 100%;
     height: 100%;
     display: block;
-    position: absolute;
-    top: -3px;
-    left: 1px;
     background: url(../assets/img/mcomm-layout-bubble-4.png) no-repeat center/18px;
+  }
+  .comm-layout-bubble-1::before {
+    top: -2px;
+    left: 0.5px;
+  }
+  .comm-layout-bubble-3::before {
+    top: -2px;
+    background-size: 20px;
   }
 }
 .comm-layout-inner {
@@ -2186,12 +2215,6 @@ a {
 }
 .comm-layout-inner .phone img {
   width: 100%;
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: -moz-crisp-edges;
-  image-rendering: -o-crisp-edges;
-  image-rendering: crisp-edges;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
 }
 @media (max-width: 480px) {
   .comm-layout-inner .phone img {
