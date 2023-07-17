@@ -2306,6 +2306,13 @@ a {
 .section08-inner .txt-box .download {
   margin: 40px 0 0 0;
 }
+@media (max-width: 991px) {
+  .section08-inner .txt-box .download {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+}
 @media (max-width: 480px) {
   .section08-inner .txt-box .download {
     margin: 29px 0 0 0;

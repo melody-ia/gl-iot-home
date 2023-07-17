@@ -625,6 +625,7 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
                 @include responsive-480{line-height:1.4;}
             }
             .download{margin:40px 0 0 0;
+                @include responsive-991{justify-content:flex-start;}
                 @include responsive-480{margin:29px 0 0 0;
                     a:last-child{margin:-1.2px 0 0 0;}
                 }
