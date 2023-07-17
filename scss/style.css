@@ -2438,6 +2438,9 @@ a {
   top: 3px;
   background: rgba(255, 255, 255, 0.5);
 }
+.at-footer-inner .info .top ul li a {
+  color: #fff;
+}
 @media (max-width: 991px) {
   .at-footer-inner .info .top ul {
     width: 100%;
