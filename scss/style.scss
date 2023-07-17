@@ -1,0 +1,675 @@
+@import './font';
+
+*{margin:0; padding:0; box-sizing:border-box; font-family:'NotoSansKR';}
+ul, ol{list-style:none;}
+a{text-decoration:none;}
+
+/* 미디어쿼리 */
+@mixin responsive-1780{
+    @media(max-width:1780px){@content;}
+}
+@mixin responsive-1700{
+    @media(max-width:1700px){@content;}
+}
+@mixin responsive-1480{
+    @media(max-width:1480px){@content;}
+}
+@mixin responsive-1400{
+    @media(max-width:1400px){@content;}
+}
+@mixin responsive-1240{
+    @media(max-width:1240px){@content;}
+}
+@mixin responsive-991{
+    @media(max-width:991px){@content;}
+}
+@mixin responsive-720{
+    @media(max-width:720px){@content;}
+}
+@mixin responsive-480{
+    @media(max-width:480px){@content;}
+}
+
+/* 변수 */
+:root{
+    --float-y:1.5vw;
+    // @include responsive-991{--float-y:1vw;}
+}
+$b:#000;
+$f:#fff;
+$green-1:#3BC996;
+$green-2:#43c9b5;
+$green-3:#f0faf8;
+$green-4:#f1fff7;
+$y:#e4f6b9;
+$gray:#656565; 
+$easing:cubic-bezier(0.215, 0.61, 0.355, 1);
+
+/* 믹스인 */
+@mixin display($display, $ai:null, $jc:null, $ff:null){display:$display; align-items:$ai; justify-content:$jc; flex-flow:$ff;}
+@mixin conSize($wd:null, $hh:null, $lh:null){width:$wd; height:$hh; line-height:$lh;}
+@mixin font($fs:null, $fw:null, $color:null){font-size:$fs; font-weight:$fw; color:$color;}
+@mixin center($position1){position:$position1; top:50%; left:50%; transform:translate(-50%,-50%);}
+@mixin position($position2:$position2, $top:null, $right:null, $bottom:null, $left:null, $zd:null){position:$position2; top:$top; right:$right; bottom:$bottom; left:$left; z-index:$zd;}
+
+/* 반응형 컨텐츠 설정 */
+@media(min-width:992px){
+    .pc-con{display:block;}
+    .mob-con{display:none !important;}
+}
+@media(max-width:991px){
+    .pc-con{display:none !important;}
+    .mob-con{display:block}
+}
+
+/* 폰트 사이즈 */
+.f50-txt-7{@include font(50px, 700);
+    @include responsive-1700{font-size:45px;}
+    @include responsive-991{font-size:40px;}
+    @include responsive-480{font-size:28px;}
+}
+.f48-txt-5{@include font(48px, 500);
+    @include responsive-1700{font-size:41px;}
+    @include responsive-1240{font-size:33px;}
+    @include responsive-991{font-size:35px;}
+    @include responsive-480{font-size:24px;}
+}
+.f38-txt-4{@include font(38px, 400);
+    @include responsive-1700{font-size:28px;}
+    @include responsive-991{font-size:21px;}
+    @include responsive-480{font-size:14px;}
+}
+.f30-txt-7{@include font(30px, 700);
+    @include responsive-1700{font-size:26px;}
+    @include responsive-480{font-size:18px;}
+}
+.f28-txt-4{@include font(28px, 400);
+    @include responsive-1700{font-size:22px;}
+    @include responsive-991{font-size:17px;}
+    @include responsive-480{font-size:12px;}
+}
+.f24-txt-5{@include font(24px, 500);}
+.f22-txt-4{@include font(22px, 400);
+    @include responsive-1700{font-size:19px;}
+    @include responsive-991{font-size:17px;}
+    @include responsive-480{font-size:12px;}
+}
+.f22-txt-5{@include font(22px, 500);
+    @include responsive-1700{font-size:19px;}
+    @include responsive-991{font-size:17px;}
+    @include responsive-480{font-size:14px;}
+}
+.f20-txt-4{@include font(20px, 400);
+    @include responsive-1700{font-size:17px;}
+    @include responsive-1240{font-size:16px;}
+    @include responsive-991{font-size:15px;}
+    @include responsive-480{font-size:12px;}
+}
+.f19-txt-4{@include font(19px, 400);}
+.f18-txt-4{@include font(18px, 400);
+    @include responsive-991{font-size:15px;}
+    @include responsive-480{font-size:12px;}
+}
+.f16-txt-4{@include font(16px, 400);
+    @include responsive-1240{font-size:14px;}
+    @include responsive-480{font-size:11px;}
+}
+.f14-txt-5{@include font(14px, 500);
+    @include responsive-480{font-size:12px;}
+}
+.f14-txt-4{@include font(14px, 400);
+    @include responsive-480{font-size:12px;}
+}
+.f14-txt-6{@include font(14px, 600);}
+
+.comm-inner{max-width:1222px; height:inherit; position:relative; margin:0 auto; padding:0 15px;}
+.comm-b-inner{max-width:1458px; height:inherit; position:relative; margin:0 auto; padding:0 15px;}
+.randing_container_wide span{display:block;}
+
+/* 구글 플레이 / 앱스토어 다운로드 버튼 */
+.download{@include display(flex, center, null, null); column-gap:15px;
+    @include responsive-991{justify-content:center;}
+    @include responsive-480{column-gap:12px;}
+}
+
+/* 각 섹션 공통 적용 */
+.section{position:relative; z-index:99; overflow:hidden;}
+.comm-sc{
+    @for $i from 1 to 8{
+        &-#{$i}{background:url(../assets/img/comm-sc-#{$i}_bg.png) no-repeat center / cover;
+            @include responsive-991{background:url(../assets/img/mcomm-sc-#{$i}_bg.png) no-repeat center / cover;}
+        }
+    }
+}
+
+/* 플로팅 이미지 애니메이션 */
+.float{width:auto; position:absolute; animation:float 7s ease-in-out infinite alternate;
+    @for $i from 1 to 6{
+        &-#{$i}{animation-delay:$i/5 + s}
+    }
+}
+@keyframes float{
+    0%{transform:translateY(0) rotate(6deg)}
+    25%{transform:translateY(var(--float-y))}
+    50%{transform:translateY(0) rotate(9deg);}
+    75%{transform:translateY(var(--float-y))}
+    100%{transform:translateY(0) rotate(6deg);}
+}
+
+/*** 헤더(로고) 시작 ***/
+.at-header{width:100%; @include position(absolute, 0, null, null, 0, 100); padding:54px 0;
+    @include responsive-991{padding:22px 0;}
+    @include responsive-720{padding:11px 0;}
+}
+/*** 헤더 끝 ***/
+
+/*** section01 시작***/
+.section01{height:calc(100vh + 70px); overflow:hidden; background-position:top; background:linear-gradient(top, #f5fffd, $f);
+    .sc01-circle{position:absolute; z-index:-1; filter:blur(26px); border-radius:50%; transition:all .3s $easing;
+        &.yellow-circle{@include conSize(303px, 303px); right:700px; bottom:120px; background:#FFF49099;
+            @include responsive-1780{right:32%;}
+            @include responsive-991{right:auto; left:-8%; bottom:-21%;}
+            @include responsive-480{@include conSize(180px, 180px); left:-12%; bottom:-7%;}
+        }
+        &.green-circle{@include conSize(770px, 770px); top:-240px; right:-110px; background:rgba(25, 215, 143, 0.6019607843);
+            @include responsive-1780{@include conSize(700px, 700px); right:-14%;}
+            @include responsive-991{@include conSize(66vw, 66vw); top:auto; right:-19%; bottom:-11%;}
+            @include responsive-480{@include conSize(305px, 305px); top:auto; bottom:15%;}
+            &::before{content:""; @include conSize(720px, 720px); @include center(absolute); filter:blur(131px); background:#FFFFFF99;
+                @include responsive-1780{@include conSize(600px, 600px);}
+            }
+        }
+    }
+    div.green-light-circle{@include conSize(675px, 675px); @include position(absolute, null, -14%, -21%, null, -1); filter:blur(101px); background:#8EFFC21F; border-radius:50%;
+        @include responsive-480{display:none;}
+    }
+    &-inner{max-width:1234px; @include display(flex, center, null, null); position:relative;
+        .intro-txt-box{width:100%;
+            &-1{
+                h1{line-height:1.2; letter-spacing:-1px;
+                    p:last-child{color:$green-1}
+                }
+                & > p{@include display(flex, center, null, null); column-gap:8px; margin:5px 0 0 0;
+                    span{color:$green-1;}
+                    @include responsive-991{justify-content:center; margin:12px 0 0 0; font-weight:500;}
+                    @include responsive-480{column-gap:4px; margin:10px 0 0 0;}
+                }
+            }
+            &-2{margin:43px 0 52px;
+                @include responsive-991{margin:26px 0 52px;}
+                @include responsive-480{margin:22px 0 24px;}
+            }
+            &-3{line-height:1.6;}
+            @include responsive-1700{width:45vw;}
+            @include responsive-991{width:100%; text-align:center;}
+        }
+        .gif-box{@include conSize(calc(34vw + 2px), 38vw); @include position(absolute, calc(9vw + 30px), calc(-2vw + 5px), null, null, null);
+            .heart{@include position(absolute, -1px, null, null, calc(50% - 95px), null); transform:translateX(-50%);}
+            &-inner{@include conSize(100%, 100%); position:relative; background:url(../assets/img/landing-gif.gif) no-repeat center / cover;
+                @include responsive-991{background:url(../assets/img/mlanding-gif.gif) no-repeat center / cover;}
+            }
+            @media(min-width:1921px){@include conSize(654px, 729px)}
+            @include responsive-1700{@include conSize(582px, 648px); position:static;}
+            @include responsive-991{@include conSize(362px, 630px);}
+            @include responsive-480{@include conSize(242px, 490px); margin:0 0 0 12px;}
+        }
+        @include responsive-991{flex-flow:column;}
+    }
+    @include responsive-991{height:auto; padding:114px 0; background-size:100% 100%;}
+    @include responsive-480{padding:121px 0 30px;}
+}
+/*** section01 끝***/
+
+/*** section02 시작 ***/
+.section02{height:auto; padding:88px 0;
+    &-inner{height:inherit; @include display(flex, center, null, null);
+        & > * {line-height:1;}
+        .txt-box{
+            span{margin:0 0 16px 0; color:#51AA8A;
+                @include responsive-480{margin:0 0 10px 0;}
+            }
+            div{@include display(flex, center, null, null); column-gap:8px;
+                p{color:#3C9D7A; letter-spacing:-1px;
+                    &:last-child{color:$green-1;}
+                }
+                @include responsive-991{line-height:1.4; flex-flow:column; align-items:flex-start;}
+                @include responsive-480{line-height:1.3;}
+            }
+        }
+    }
+    @include responsive-991{padding:56px 0 63px; background-position:bottom;}
+    @include responsive-480{padding:37px 0 52px;}
+}
+/*** section02 끝 ***/
+
+/*** section03 시작 ***/
+.section03{height:auto; padding:0 0 380px 0; background:url(../assets/img/sc03-person.png) no-repeat center bottom, linear-gradient(top, $f, #edfcf7);
+    &-inner{height:inherit; position:relative; padding:5vw 15px 0 15px;
+        .bubble-box{
+            ul{
+                li{@include display(flex, center, null, null); column-gap:20px; position:relative; padding:40px 27px 33px; border-radius:20px; background:$f; box-shadow:6px 12px 16px rgba(150, 175, 166, 0.05), -6px 12px 16px rgba(150, 175, 166, 0.03);
+                    .sc03-con{@include conSize(46px, 46px); border-radius:50%; background:#DEF6F2;
+                        @for $i from 1 to 11{
+                            &-#{$i}{background:url(../assets/img/sc03-con-#{$i}.png) #DEF6F2 no-repeat center / 50%;}
+                        }
+                        &-s{@include conSize(38px, 38px);}
+                        @include responsive-720{@include conSize(35px, 35px)}
+                        @include responsive-480{@include conSize(30px, 30px)}
+                    }
+                    .txt-box{line-height:1.3; white-space:nowrap; letter-spacing:-.5px;}
+                    .s-bubble{@include position(absolute, 0, -90px, null, null, 10); padding:6px 19px 18px 22px; background:url(../assets/img/speech-bubble.png) no-repeat center / cover; border-radius:10px; color:$f;
+                        @include responsive-991{right:-55px; padding:6px 15px 16px 18px; background:url(../assets/img/mspeech-bubble.png) no-repeat center / cover;}
+                        @include responsive-480{padding:6px 13px 11px 13px;}
+                    }
+                    &.opacity{filter:opacity(.5)}
+                    &.blur{filter:blur(4px); color:rgba(0,0,0, .1); box-shadow:none;
+                        @include responsive-480{filter:blur(2px)}
+                    }
+                    &.etc{box-shadow:0px 10px 20px rgba(150, 225, 216, 0.1);}
+                    @include responsive-720{column-gap:10px;}
+                }
+            }
+        }
+        // pc
+        .bubble-box.pc-con{
+            ul{@include display(flex, center, center, null);
+                li{transition:opacity .9s $easing, transform .9s $easing;}
+                &:first-child{column-gap:69px;
+                    .etc{margin:115px 0 0 0; box-shadow:none;
+                        @include responsive-991{margin:0;}
+                    }
+                    .padding-s{padding:40px 50px 33px 27px;}
+                }
+                &:nth-child(2){column-gap:35px; margin:0 0 0 77px;
+                    li{
+                        &.margin.padding-b{margin:41px 0 0 0; padding:46px 40px 46px 37px;}
+                        &.padding-s{padding:27px 68px 33px 27px}
+                        &:not(.margin){margin:-80px 0 0 0;}
+                    }
+                }
+                &:last-child{column-gap:440px; margin:-20px 0 0 0;}
+            }
+        }
+        // mob
+        .bubble-box.mob-con{
+            ul{width:100%; display:-webkit-box; margin-bottom:30px;
+                li{width:50%; margin-right:30px;
+                    &:last-child{margin-right:0;}
+                    @include responsive-991{padding:23px 27px 23px 27px}
+                    @include responsive-720{width:60%;}
+                    @include responsive-480{width:222px; column-gap:10px; padding:18px 17px 18px 17px; border-radius:10px;}
+                }
+                &:nth-child(even){margin:0 0 30px -80px;
+                    .blur{justify-content:flex-start; background:rgba(255,255,255, .5);
+                        @include responsive-480{justify-content:flex-end;}
+                    }
+                    @include responsive-720{margin:0 0 30px -100px;}
+                    @include responsive-480{margin:0 0 30px -150px;}
+                }
+                &:nth-child(odd){margin:0 0 30px 0;}
+                &:first-child, &:last-child{margin-left:0;}
+                &:last-child{margin-bottom:0;}
+            }
+        }
+        .float{
+            &-1{bottom:-50px; left:-40px;}
+            &-2{right:340px; bottom:-260px;
+                @include responsive-1400{right:160px;}
+            }
+            &-3{right:90px;
+                @include responsive-1400{right:30px;}
+            }
+        }
+        @include responsive-991{padding:14vw 15px 0 15px;}
+        @include responsive-480{padding:0 15px;}
+    }
+    @include responsive-991{height:auto; padding:0 0 320px 0; background:url(../assets/img/msc03-person.png) no-repeat center bottom / 390px 304px, linear-gradient(top, $f, #edfcf7);}
+    @include responsive-480{padding:50px 0 320px 0; background:url(../assets/img/msc03-person.png) no-repeat center bottom/360px 274px, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#edfcf7))}
+}
+/*** section03 끝 ***/
+
+/*** section04 시작 ***/
+.section04{padding:6vw 0; background:$f;
+    &-inner{column-gap:150px;
+        .txt-box{margin:-120px 0 0 0;
+            @include responsive-1240{margin:0;}
+        }
+        .img-box{@include conSize(420px, 752px); @include display(flex, center, center, null); position:relative; z-index:5;
+            &::before, &::after{content:""; @include center(absolute); z-index:-1; box-sizing:border-box; border-radius:50%;}
+            &::before{@include conSize(582px, 582px); border:2px solid #D7F4EA;
+                @include responsive-1700{@include conSize(500px, 500px)}
+                @include responsive-1240{@include conSize(37vw, 37vw)}
+                @include responsive-991{@include conSize(487px, 487px)}
+                @include responsive-480{@include conSize(380px, 380px)}
+            }
+            &::after{@include conSize(505px, 505px); background:#F3FEFA;
+                @include responsive-1700{@include conSize(430px, 430px)}
+                @include responsive-1240{@include conSize(32vw, 32vw)}
+                @include responsive-991{@include conSize(442px, 442px)}
+                @include responsive-480{@include conSize(330px, 330px)}
+            }
+            img{margin:30px 0 0 -30px;
+                @include responsive-991{margin:0 0 0 -30px}
+                @include responsive-480{margin:0 0 0 -8px;}
+            }
+            @include responsive-1700{@include conSize(362px, 650px)}
+            @include responsive-1240{@include conSize(25vw, 45vw)}
+            @include responsive-991{@include conSize(362px, 630px)}
+            @include responsive-480{@include conSize(285px, 480px)}
+        }
+        @include responsive-1240{column-gap:110px;}
+    }
+    .float-1{height:40px; top:100px; left:110px;
+        @include responsive-1480{height:40px; left:57px;}
+        @include responsive-991{height:50px; left:30px;}
+        @include responsive-720{left:15px;}
+        @include responsive-480{height:40px; top:31%; left:5px;}
+    }
+    .float-2{top:180px; left:15%;
+        @include responsive-1480{height:25px; left:10%;}
+        @include responsive-991{height:40px; top:auto; right:15px; bottom:70px; left:auto;}
+        @include responsive-480{height:34px; right:30px; bottom:30px;}
+    }
+    .float-3{bottom:200px; left:calc(50% - 30px);
+        @include responsive-1400{height:30px; bottom:150px;}
+    }
+    .float-4{right:200px; bottom:130px;
+        @include responsive-1400{bottom:90px;}
+        @include responsive-1240{height:35px;}
+    }
+    .float-5{right:50px; bottom:calc(50% - 210px);
+        @include responsive-1240{height:100px;}
+    }
+    @include responsive-991{height:auto;}
+}
+/*** section04 끝 ***/
+
+/*** section05 시작 ***/
+.section05{height:auto; padding:calc(7vw + 10px) 0 5vw 0;
+    &-inner{column-gap:90px;
+        .txt-box{margin:-100px 0 0 0;
+            @include responsive-480{margin:0 0 13px 0;}
+        }
+        @include responsive-1240{column-gap:30px;}
+    }
+    .float{
+        @include responsive-1780{height:50px;}
+        @include responsive-1240{height:40px;}
+        @include responsive-991{height:auto;}
+        @include responsive-720{height:50px;}
+        &-1{top:220px; right:210px;
+            @include responsive-1780{right:6%;}
+            @include responsive-991{top:53%; right:30px;}
+            @include responsive-720{right:15px;}
+            @include responsive-480{height:40px; right:10px;}
+        }
+        &-2{top:320px; right:380px;
+            @include responsive-1780{right:15%;}
+            @include responsive-1480{right:12%;}
+            @include responsive-991{right:auto; left:30px;}
+            @include responsive-720{left:15px;}
+            @include responsive-480{height:28px; top:31%;}
+        }
+        &-3{right:200px; bottom:420px;
+            @include responsive-1780{right:6%;}
+            @include responsive-1700{bottom:28%;}
+        }
+        &-4{right:940px; bottom:280px;
+            @include responsive-1780{bottom:20%;}
+            @include responsive-1480{right:auto; left:30%;}
+            @include responsive-991{left:30px; bottom:11%;}
+            @include responsive-720{left:15px}
+            @include responsive-480{height:40px;}
+        }
+    }
+    @include responsive-1480{padding:107px 0 69px;}
+    @include responsive-991{background-position:bottom;}
+    @include responsive-480{padding:49px 0 35px;}
+}
+/*** section05 끝 ***/
+
+/*** section06 시작 ***/
+.section06{height:auto; padding:8vw 0 5vw; background:none;
+    &-inner{column-gap:155px;
+        .txt-box{position:relative; margin:-120px 0 0 0;
+            .intro{margin:0;
+                & > div{margin:6px 0 25px 0;
+                    @include responsive-480{margin:6px 0 16px 0;}
+                }
+                @include responsive-991{margin:0;}
+            }
+            .deco{display:flex; column-gap:63px; @include position(absolute, null, -7%, -95%, null, null); margin:0;
+                &-1, &-2{@include conSize(156px, 194px);
+                    @include responsive-1700{width:10vw; height:13vw;}
+                }
+                &-1{background:url(../assets/img/sc06-con-1.png) no-repeat center / cover;}
+                &-2{@include position(absolute, null, -220px, 160px, null, null); background:url(../assets/img/sc06-con-2.png) no-repeat center / cover;
+                    .heart{position:absolute; 
+                        &-1{top:-38px; animation:heart-1 1.2s infinite step-end;}
+                        &-2{top:-72px; left:19px; animation:heart-2 1.2s infinite step-end;}
+                        &-3{top:-97px; left:-9px; animation:heart-3 1.2s infinite step-end;}
+                    }
+                    @keyframes heart-1{
+                        0%, 100%{opacity:0;}
+                        25%{opacity:1;}
+                    }
+                    @keyframes heart-2{
+                        0%, 100%{opacity:0;}
+                        50%{opacity:1;}
+                    }
+                    @keyframes heart-3{
+                        0%, 100%{opacity:0;}
+                        75%{opacity:1;}
+                    }
+                    @include responsive-1700{right:-140%; bottom:60%;}
+                }
+                @include responsive-1400{right:5%; bottom:-89%;}
+                @include responsive-1240{bottom:-77%;}
+            }
+            @include responsive-991{margin:0 0 20px 0;}
+            @include responsive-480{margin:0 0 15px 0;}
+        }
+        .img-box{
+            .mob-con{margin:0 0 0 -4px;}
+        }
+        @include responsive-1700{column-gap:85px;}
+        @include responsive-1240{column-gap:45px;}
+    }
+    &-bg-wrap{
+        .bg-effect{@include conSize(100%, 100%); @include position(absolute, 0, null, null, 0, null);
+            @for $i from 1 to 4{
+                &-#{$i}{z-index:-$i; background:url(../assets/img/comm-sc-5_bg.png) no-repeat center / cover;}
+            }
+            &.basic{opacity:.4;}
+            &.overlay{opacity:1; mix-blend-mode:overlay;}
+            &.exposure{background:$f; transition:all .3s ease;}
+        }
+    }
+    @include responsive-991{background:url(../assets/img/mcomm-sc-5_bg.png) no-repeat center / cover;}
+    @include responsive-480{padding:49px 0 36px;}
+}
+/*** section06 끝 ***/
+
+/*** section07 시작 ***/
+.section07{height:auto; padding:8vw 0 5vw; background:$green-3;
+    &-inner{column-gap:90px;
+        .txt-box{height:inherit; @include display(flex, null, center, column); position:relative; margin:-160px 0 0 0;
+            & > div{margin:8px 0 29px 0;
+                @include responsive-480{margin:0px 0px 13px 0;}
+            }
+            span{
+                &.f16-txt-4{margin:5px 0 0 0; color:$green-1;
+                    @include responsive-480{margin:2px 0 0 0;}
+                }
+            }
+            .tree{position:absolute; z-index:99;
+                &-1{right:-120px; bottom:-260px;
+                    @include responsive-1480{@include conSize(18vw, 14vw); right:-24%; bottom:-80%;}
+                    @include responsive-1240{bottom:-70%;}
+                }
+                &-2{left:186px; bottom:-20px;
+                    @include responsive-480{left:-6px; bottom:20px;}
+                }
+                &-3{right:200px; bottom:-20px;
+                    @include responsive-480{right:29px; bottom:20px;}
+                }
+            }
+            @include responsive-991{margin:0; position:static;}
+            @include responsive-480{margin:0 0 10px 0px;}
+        }
+        .img-box{position:relative;
+            @include responsive-991{margin:0 0 0 -10px;}
+            @include responsive-480{margin:0 0 0 -29px;}
+        }
+    }
+        .float-2, .float-3, .float-4, .float-5{filter:opacity(0.2) brightness(1.5);}
+        .float-1, .float-2, .float-3, .float-4, .float-5{
+            @include responsive-1700{height:35px;}
+            @include responsive-991{height:auto;}
+        }
+        .float-1{width:auto !important; top:0; right:35%;
+            @include responsive-1400{right:30%;}
+        }
+        .float-2{top:-170px; right:220px;
+            @include responsive-991{top:-50px; right:30px;}
+            @include responsive-480{top:-20px; right:15px;}
+        }
+        .float-3{left:250px; bottom:500px;
+            @include responsive-1480{left:10%;}
+            @include responsive-991{top:32%; left:30px; bottom:auto;}
+            @include responsive-480{left:4px;}
+        }
+        .float-4{left:570px; bottom:160px;
+            @include responsive-1480{left:32%;}
+            @include responsive-991{left:auto; right:26%; bottom:29%; z-index:-1;}
+            @include responsive-480{right:40px}
+        }
+        .float-5{left:180px; bottom:40px;}
+    @include responsive-480{padding:45px 0 0;}
+}
+/*** section07 끝 ***/
+
+/*** section04 ~ 07 공통 시작 ***/
+.comm-layout{
+    &-bubble{@include conSize(39px, 40px); position:relative; background:url(../assets/img/speech-bubble2.png) no-repeat center / cover;
+        @for $i from 1 to 5{
+            &-#{$i}{
+                &::before{content:""; @include conSize(100%, 100%); display:block; @include position(absolute, -3px, null, null, 1px, null); background:url(../assets/img/comm-layout-bubble-#{$i}.png) no-repeat center;}
+            }
+        }
+        @include responsive-991{margin:0 auto;}
+        @include responsive-480{@include conSize(36px, 36px);}
+    }
+    &-inner{@include display(flex, center, center, null);
+        .txt-box{
+            & > div{margin:6px 0 35px 0;
+                p{@include display(flex, center, null, null); column-gap:5px; letter-spacing:-1px;
+                    span:last-child{color:$green-1;}
+                    @include responsive-991{justify-content:center; margin:6px 0 0 0;}
+                }
+                @include responsive-991{margin:0 0 24px 0}
+                @include responsive-480{margin:0 0 13px 0;}
+            }
+            .f20-txt-4{
+                @include responsive-991{text-align:center;}
+            }
+            @include responsive-991{order:1; margin:0 0 20px 0;}
+            @include responsive-480{margin:0 0 13px 0;}
+        }
+        .phone{@include conSize(calc(22vw - 2px), calc(39vw + 4px)); transition:all .3s $easing;
+            &.leave{transition:all .6s $easing;}
+            img{width:100%; image-rendering:-webkit-optimize-contrast; image-rendering:-moz-crisp-edges; image-rendering:-o-crisp-edges; image-rendering:crisp-edges; backface-visibility:hidden;
+                @include responsive-480{height:100%; object-fit:contain;}
+            }
+            @include responsive-1700{@include conSize(362px, 650px)}
+            @include responsive-1480{@include conSize(25vw, 45vw)}
+            @include responsive-991{@include conSize(362px, 630px); order:2;}
+            @include responsive-480{@include conSize(285px, 480px)}
+        }
+        @include responsive-991{flex-flow:column;}
+    }
+    @include responsive-991{padding:90px 0;}
+    @include responsive-480{padding:46px 0;
+        &.section07{padding:46px 0 15px;}
+    }
+}
+/*** section04 ~ 07 공통 끝 ***/
+
+/*** section08 시작 ***/
+.section08{height:auto; padding:127px 0 100px;
+    &-inner{@include display(flex, center, space-between, null);
+        .txt-box{
+            span.f20-txt-4{color:$f;}
+            p{@include display(flex, center, null, null); column-gap:8px; margin:10px 0 0 0; color:$f;
+                span:last-child{color:#2AC68E;}
+                @include responsive-991{flex-flow:column; align-items:flex-start; margin:5px 0 0 0;}
+                @include responsive-480{line-height:1.4;}
+            }
+            .download{margin:40px 0 0 0;
+                @include responsive-480{margin:29px 0 0 0;}
+            }
+            @include responsive-720{width:100%;}
+        }
+        .img-box{@include conSize(100px, 100px); @include display(flex, center, center, null); background:$f; border-radius:10px; box-shadow:0 4px 9px rgba(0, 0, 0, 0.05), 0 6px 9px rgba(0, 0, 0, 0.08);
+            @include responsive-991{display:none;}
+        }
+    }
+    @include responsive-991{padding:60px 0 50px; background-position:bottom;}
+    @include responsive-480{padding:45px 0 40px;}
+}
+/*** section08 끝 ***/
+
+/*** 풋터 시작 ***/
+.at-footer{padding:73px 0 63px 0; background:$b;
+    &-inner{@include display(flex, center, space-between, null); color:$f;
+        .info{
+            .top{@include display(flex, null, null, null); column-gap:221px;
+                ul{
+                    li{position:relative;
+                        &.f24-txt-5{margin:0 0 11px 0; color:$gray;}
+                        &:not(.f24-txt-5){margin:0 0 4px 0; @extend .f14-txt-4;
+                            @include responsive-991{margin:0 10px 5px 0; padding:0 10px 0 0;}
+                            @include responsive-480{margin:0 7px 2px 0; padding:0 7px 0 0;}
+                        }
+                        &:last-child{margin:0; padding:0;}
+                        &::after{content:""; @include conSize(1px, calc(100% - 7px)); display:none; position:absolute; right:0; top:3px; background:rgba(255,255,255, .5);}
+                    }
+                    @include responsive-991{width:100%; display:flex; flex-flow:wrap;
+                        &:first-child{  
+                            li{
+                                &:nth-child(3){
+                                    &::after{display:none;}
+                                }
+                                &:last-child{width:100%; margin-bottom:5px;}
+                            }
+                        }
+                        &:last-child{
+                            li{margin-bottom:0;}
+                        }
+                        li{
+                            &::after{display:block;}
+                            &:last-child{
+                                &::after{display:none;}
+                            }
+                        }
+                    }
+                }
+                @include responsive-991{align-items:flex-start; flex-flow:column;}
+            }
+            .bott{margin:15px 0 0 0;
+                span{color:$green-1;}
+                @include responsive-991{margin:20px 0 0 0;}
+                @include responsive-480{margin:7px 0 0 0}
+            }
+            @include responsive-991{width:100%; order:2;}
+        }
+        .logo{margin:-10px 0 0 0;
+            @include responsive-991{order:1; margin:0 0 40px 0;}
+            @include responsive-480{margin:0 0 30px 0;}
+        }
+        @include responsive-991{align-items:flex-start; flex-flow:column;}
+    }
+    @include responsive-991{padding:60px 0 55px 0;}
+    @include responsive-480{padding:34px 0 38px 0;}
+}
+/*** 풋터 끝 ***/
