@@ -559,14 +559,8 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
     &-bubble{@include conSize(39px, 40px); position:relative; background:url(../assets/img/speech-bubble2.png) no-repeat center / cover;
         @for $i from 1 to 5{
             &-#{$i}{
-                &::before{content:""; @include conSize(100%, 100%); display:block; position:absolute; top:-3px; background:url(../assets/img/comm-layout-bubble-#{$i}.png) no-repeat center;}
-            }
-        }
-        @include responsive-991{margin:0 auto;}
-        @include responsive-480{@include conSize(36px, 36px);
-            @for $i from 1 to 5{ 
-                &-#{$i}{
-                    &::before{content:""; @include conSize(100%, 100%); display:block; background:url(../assets/img/mcomm-layout-bubble-#{$i}.png) no-repeat center / 18px;}
+                &::before{content:""; @include conSize(100%, 100%); display:block; position:absolute; top:-3px; background:url(../assets/img/comm-layout-bubble-#{$i}.png) no-repeat center;
+                    @include responsive-480{background:url(../assets/img/mcomm-layout-bubble-#{$i}.png) no-repeat center / 18px;}
                 }
             }
         }
@@ -582,6 +576,8 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
         &-4::before{top:-2px; left:0;
             @include responsive-480{top:-3px; left:1px;}
         }
+        @include responsive-991{margin:0 auto;}
+        @include responsive-480{@include conSize(36px, 36px);}
     }
     &-inner{@include display(flex, center, center, null);
         .txt-box{
