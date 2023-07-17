@@ -977,7 +977,8 @@ a {
 }
 @media (max-width: 480px) {
   .section03-inner .bubble-box ul li .s-bubble {
-    padding: 6px 13px 11px 13px;
+    padding: 6px 13px 12px 13px;
+    background-size: contain;
   }
 }
 .section03-inner .bubble-box ul li.opacity {
