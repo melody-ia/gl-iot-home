@@ -212,12 +212,12 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
             .heart{@include position(absolute, -1px, null, null, calc(50% - 95px), null); transform:translateX(-50%);}
             &-inner{@include conSize(100%, 100%); position:relative; background:url(../assets/img/landing-gif.gif) no-repeat center / cover; @extend .img-quality;
                 @include responsive-991{background:url(../assets/img/mlanding-gif.gif) no-repeat center / cover;}
-                //@include responsive-480{background-size:contain;}
+                @include responsive-480{background-size:contain;}
             }
             @media(min-width:1921px){@include conSize(654px, 729px)}
             @include responsive-1700{@include conSize(582px, 648px); position:static;}
             @include responsive-991{@include conSize(362px, 630px);}
-            @include responsive-480{@include conSize(242px, 490px); margin:0 0 0 12px;}
+            @include responsive-480{@include conSize(349px, 490px); margin:0 0 0 12px;}
         }
         @include responsive-991{flex-flow:column;}
     }
@@ -562,9 +562,8 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
             &-#{$i}{
                 &::before{content:""; @include conSize(100%, 100%); display:block; @include position(absolute, -3px, null, null, 0, null); background:url(../assets/img/comm-layout-bubble-#{$i}.png) no-repeat center;}
             }
-            &-4{
-                &::before{top:-2px; left:0;}
-            }
+            &-3::before{left:0;}
+            &-4::before{top:-2px; left:0;}
         }
         @include responsive-991{margin:0 auto;}
         @include responsive-480{@include conSize(36px, 36px);
@@ -573,7 +572,9 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
                     &::before{content:""; @include conSize(100%, 100%); display:block; background:url(../assets/img/mcomm-layout-bubble-#{$i}.png) no-repeat center / 18px;}
                 }
                 &-1::before{top:-2px; left:.5px;}
-                &-3::before{top:-2px; background-size:20px;}
+                &-2::before{left:-1px;}
+                &-3::before{top:-2px; left:-1px; background-size:20px;}
+                &-4::before{left:-.5px;}
             }
         }
     }
