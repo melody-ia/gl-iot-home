@@ -514,10 +514,10 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
                     @include responsive-1240{bottom:-70%;}
                 }
                 &-2{left:186px; bottom:-20px;
-                    @include responsive-480{left:-6px; bottom:20px;}
+                    @include responsive-480{left:3px; bottom:20px;}
                 }
                 &-3{right:200px; bottom:-20px;
-                    @include responsive-480{right:29px; bottom:20px;}
+                    @include responsive-480{right:22px; bottom:20px;}
                 }
             }
             @include responsive-991{margin:0; position:static;}
@@ -525,7 +525,6 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
         }
         .img-box{position:relative;
             @include responsive-991{margin:0 0 0 -10px;}
-            @include responsive-480{margin:0 0 0 -29px;}
         }
     }
         .float-2, .float-3, .float-4, .float-5{filter:opacity(0.2) brightness(1.5);}
@@ -548,7 +547,7 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
         .float-4{left:570px; bottom:160px;
             @include responsive-1480{left:32%;}
             @include responsive-991{left:auto; right:26%; bottom:29%; z-index:-1;}
-            @include responsive-480{right:40px}
+            @include responsive-480{right:32px}
         }
         .float-5{left:180px; bottom:40px;}
     @include responsive-480{padding:45px 0 0;}
@@ -562,6 +561,7 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
             &-#{$i}{
                 &::before{content:""; @include conSize(100%, 100%); display:block; @include position(absolute, -3px, null, null, 0, null); background:url(../assets/img/comm-layout-bubble-#{$i}.png) no-repeat center;}
             }
+            &-1::before{left:1px}
             &-3::before{left:0;}
             &-4::before{top:-2px; left:0;}
         }
@@ -571,10 +571,10 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
                 &-#{$i}{
                     &::before{content:""; @include conSize(100%, 100%); display:block; background:url(../assets/img/mcomm-layout-bubble-#{$i}.png) no-repeat center / 18px;}
                 }
-                &-1::before{top:-2px; left:.5px;}
-                &-2::before{left:-1px;}
-                &-3::before{top:-2px; left:-1px; background-size:20px;}
-                &-4::before{left:-.5px;}
+                &-1::before{top:-2px; left:1px;}
+                &-2::before{left:0;}
+                &-3::before{top:-2.5px; left:0; background-size:20px;}
+                &-4::before{top:-3px; left:1px;}
             }
         }
     }
