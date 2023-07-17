@@ -147,7 +147,7 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 /* 플로팅 이미지 애니메이션 */
 .float{width:auto; position:absolute; animation:float 7s ease-in-out infinite alternate;
     @for $i from 1 to 6{
-        &-#{$i}{animation-delay:$i/5 + s}
+        &-#{$i}{animation-delay:calc($i / 5) + s}
     }
 }
 @keyframes float{
@@ -169,7 +169,7 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 /*** 헤더 끝 ***/
 
 /*** section01 시작***/
-.section01{height:calc(100vh + 70px); overflow:hidden; background-position:top; background:linear-gradient(top, #f5fffd, $f);
+.section01{height:calc(100vh + 70px); overflow:hidden; background-position:top; background:linear-gradient(to bottom, #f5fffd, $f);
     .sc01-circle{position:absolute; z-index:-1; filter:blur(26px); border-radius:50%; transition:all .3s $easing;
         &.yellow-circle{@include conSize(303px, 303px); right:700px; bottom:120px; background:#FFF49099;
             @include responsive-1780{right:32%;}
@@ -249,7 +249,7 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 /*** section02 끝 ***/
 
 /*** section03 시작 ***/
-.section03{height:auto; padding:0 0 380px 0; background:url(../assets/img/sc03-person.png) no-repeat center bottom, linear-gradient(top, $f, #edfcf7);
+.section03{height:auto; padding:0 0 380px 0; background:url(../assets/img/sc03-person.png) no-repeat center bottom, linear-gradient(to bottom, $f, #edfcf7);
     &-inner{height:inherit; position:relative; padding:5vw 15px 0 15px;
         .bubble-box{
             ul{
@@ -329,7 +329,7 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
         @include responsive-991{padding:14vw 15px 0 15px;}
         @include responsive-480{padding:0 15px;}
     }
-    @include responsive-991{height:auto; padding:0 0 320px 0; background:url(../assets/img/msc03-person.png) no-repeat center bottom / 390px 304px, linear-gradient(top, $f, #edfcf7);}
+    @include responsive-991{height:auto; padding:0 0 320px 0; background:url(../assets/img/msc03-person.png) no-repeat center bottom / 390px 304px, linear-gradient(to bottom, $f, #edfcf7);}
     @include responsive-480{padding:50px 0 320px 0; background:url(../assets/img/msc03-person.png) no-repeat center bottom/360px 274px, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#edfcf7))}
 }
 /*** section03 끝 ***/

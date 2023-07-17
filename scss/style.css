@@ -541,7 +541,7 @@ a {
   overflow: hidden;
   background-position: top;
   background: -webkit-gradient(linear, left top, left bottom, from(#f5fffd), to(#fff));
-  background: linear-gradient(top, #f5fffd, #fff);
+  background: linear-gradient(to bottom, #f5fffd, #fff);
 }
 .section01 .sc01-circle {
   position: absolute;
@@ -882,7 +882,7 @@ a {
   height: auto;
   padding: 0 0 380px 0;
   background: url(../assets/img/sc03-person.png) no-repeat center bottom, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#edfcf7));
-  background: url(../assets/img/sc03-person.png) no-repeat center bottom, linear-gradient(top, #fff, #edfcf7);
+  background: url(../assets/img/sc03-person.png) no-repeat center bottom, linear-gradient(to bottom, #fff, #edfcf7);
 }
 .section03-inner {
   height: inherit;
@@ -1174,7 +1174,7 @@ a {
     height: auto;
     padding: 0 0 320px 0;
     background: url(../assets/img/msc03-person.png) no-repeat center bottom/390px 304px, -webkit-gradient(linear, left top, left bottom, from(#fff), to(#edfcf7));
-    background: url(../assets/img/msc03-person.png) no-repeat center bottom/390px 304px, linear-gradient(top, #fff, #edfcf7);
+    background: url(../assets/img/msc03-person.png) no-repeat center bottom/390px 304px, linear-gradient(to bottom, #fff, #edfcf7);
   }
 }
 @media (max-width: 480px) {
