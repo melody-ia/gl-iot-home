@@ -529,6 +529,10 @@ a {
     padding: 11px 0;
   }
 }
+.at-header .logo .pc-con {
+  width: 233px;
+  height: 68px;
+}
 .at-header .logo .mob-con {
   width: auto;
   height: 43px;
@@ -733,6 +737,8 @@ a {
   right: calc(-2vw + 5px);
 }
 .section01-inner .gif-box .heart {
+  width: 84px;
+  height: 90px;
   position: absolute;
   top: -1px;
   left: calc(50% - 95px);
