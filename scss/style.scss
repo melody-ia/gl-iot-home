@@ -222,7 +222,7 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
         }
         @include responsive-991{flex-flow:column;}
     }
-    @include responsive-991{height:auto; padding:114px 0; background-size:100% 100%;}
+    @include responsive-991{height:auto; padding:114px 0; background:url(../assets/img/mcomm-sc-1_bg.png) no-repeat center / cover;}
     @include responsive-480{padding:121px 0 30px;}
 }
 /*** section01 끝***/
